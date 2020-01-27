@@ -74,8 +74,9 @@ function getName(obj) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(enterName, num1, num2) {
+  let newObject = { name: enterName, sum: function sum(num1, num2) {return num1 + num2;}, speak: function() {return(`Hello, my name is ${this.name}`)}}
+  return newObject;
 }
 
 
@@ -137,7 +138,7 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  return `This is a ${inventory[index].car_make} ${inventory[index].car_model}`;
 }
 
 /**
@@ -151,8 +152,8 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(arr) {
+  return `This is a ${arr[arr.length-1].car_make} ${arr[arr.length -1].car_model}`
 }
 
 /**
@@ -167,8 +168,15 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, id) {
+  // @ts-ignore
+  for (i = 0; i < inventory.length; i++) {
+    // @ts-ignore
+    if(inventory[i].id === id) {
+      // @ts-ignore
+      return `This is a ${inventory[i].car_make} ${inventory[i].car_model}`;
+    }
+  }
 }
 
 /**
